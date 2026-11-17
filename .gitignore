@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+_review_final/
+_review3_final/
+*_before_*.py
+attack_trigger.txt
+clear_trigger.txt
+live_state.json
+mode.txt
+*.log
+./cicids2017/Wednesday-workingHours.pcap_ISCX.csv
+./cicids2017/Tuesday-WorkingHours.pcap_ISCX.csv
+./cicids2017/Monday-WorkingHours.pcap_ISCX.csv
