@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>netshield-ai — Four-Configuration Attack Comparison</title>
+<style>
+:root{
+  --bg:#0b0f14; --panel:#141b24; --panel2:#0f151d; --line:#232d3a;
+  --txt:#e6edf3; --mut:#8b949e;
+  --green:#3fb950; --red:#f85149; --orange:#e3a008; --grey:#3a434f; --edge:#2b3443;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);
+  font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;padding:20px 18px 48px}
+h1{font-size:24px;margin:0 0 3px;letter-spacing:.2px}
+.sub{color:var(--mut);margin:0 0 18px;font-size:14px}
+.controls{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:22px}
+button{font:inherit;font-weight:600;border:none;border-radius:9px;padding:11px 20px;cursor:pointer;color:#fff}
+.btn-attack{background:#da3633} .btn-attack:hover{background:#f85149}
+.btn-reset{background:#2d3845} .btn-reset:hover{background:#3a475699}
+.btn-attack:disabled{opacity:.5;cursor:not-allowed}
+select{font:inherit;font-weight:600;background:#1b232e;color:var(--txt);
+  border:1px solid var(--line);border-radius:9px;padding:10px 14px;cursor:pointer}
+.scn{color:var(--mut);font-size:13px} .scn b{color:var(--txt)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+  padding:16px 16px 14px;position:relative;overflow:hidden}
+.panel.winner{border-color:#2ea04366;box-shadow:0 0 0 1px #2ea04333}
+.phead{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2px}
+.pname{font-size:16px;font-weight:700}
+.pdesc{color:var(--mut);font-size:12px;margin-bottom:10px}
+.badge{font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px}
+.badge.g{background:#17331d;color:var(--green)} .badge.o{background:#3a2c08;color:var(--orange)}
+.badge.r{background:#3a1715;color:var(--red)}
+svg.net{width:100%;height:200px;display:block}
+.node text{fill:var(--txt);font-size:12px;font-weight:600;text-anchor:middle}
+.node .role{fill:var(--mut);font-size:9.5px;font-weight:500}
+.node circle{transition:fill .4s,stroke .4s,opacity .4s}
+.edge{stroke:var(--edge);stroke-width:2.5;transition:stroke .4s,stroke-dasharray .4s,opacity .4s;fill:none}
+.ring{fill:none;stroke:var(--red);stroke-width:2.5;opacity:0;transition:opacity .4s}
+.ring.on{opacity:1}
+.statline{display:flex;gap:14px;margin:8px 0 10px;font-size:12.5px;flex-wrap:wrap}
+.statline .s{color:var(--mut)} .statline .s b{color:var(--txt);font-weight:700}
+.wavetag{position:absolute;top:14px;right:16px;font-size:11px;color:var(--mut)}
+.dtbl{width:100%;border-collapse:collapse;font-size:11.5px;margin-top:4px}
+.dtbl th{color:var(--mut);text-align:left;font-weight:600;padding:4px 6px;
+  border-bottom:1px solid var(--line);font-size:10px;text-transform:uppercase;letter-spacing:.03em}
+.dtbl td{padding:4px 6px;border-bottom:1px solid #1a222c}
+.dtbl tr:last-child td{border-bottom:none}
+.dtbl tr.mis{background:#3a2708} .dtbl tr.mis td{color:#f0b429}
+.act{font-weight:700}
+.act.MONITOR{color:var(--green)} .act.RESTRICT{color:var(--orange)}
+.act.QUARANTINE{color:var(--red)} .act.ACL-DROP{color:var(--mut)}
+.dtitle{font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.04em;margin:10px 0 2px;display:flex;justify-content:space-between}
+.quality{font-weight:700}
+.quality.good{color:var(--green)} .quality.bad{color:var(--orange)}
+.summcard{margin-top:10px;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.summcard .h{font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px}
+.summrow{display:flex;justify-content:space-between;font-size:12.5px;padding:3px 0}
+.summrow .k{color:var(--mut)} .summrow .v{font-weight:700}
+.legend{display:flex;gap:18px;margin:16px 2px 0;font-size:12px;color:var(--mut);flex-wrap:wrap}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.dot{width:11px;height:11px;border-radius:50%;display:inline-block}
+.summary{margin-top:18px;background:var(--panel2);border:1px solid var(--line);
+  border-radius:12px;padding:14px 16px;font-size:13.5px;line-height:1.7;color:var(--mut)}
+.summary b{color:var(--txt)}
+</style>
+</head>
+<body>
+<h1>Ransomware Containment — Four Configurations, Same Attack</h1>
+<p class="sub">Pick the compromised host; it attempts lateral movement to every other host. Watch how each defence configuration responds, in parallel.</p>
+
+<div class="controls">
+  <label class="scn">Compromised host:
+    <select id="attacker">
+      <option value="HR">HR (10.0.0.1)</option>
+      <option value="Finance">Finance (10.0.0.2)</option>
+      <option value="Server">Server (10.0.0.3)</option>
+      <option value="Guest">Guest (10.0.0.4)</option>
+    </select>
+  </label>
+  <button class="btn-attack" id="go">▶ Start Lateral-Movement Attack</button>
+  <button class="btn-reset" id="reset">↺ Reset</button>
+  <span class="scn" id="scninfo"></span>
+</div>
+
+<div class="grid" id="grid"></div>
+
+<div class="legend">
+  <span><span class="dot" style="background:var(--green)"></span>healthy / reachable</span>
+  <span><span class="dot" style="background:var(--red)"></span>compromised / reached</span>
+  <span><span class="dot" style="background:var(--orange)"></span>restricted link</span>
+  <span><span class="dot" style="background:var(--grey)"></span>isolated (static ACL)</span>
+  <span><span style="width:14px;height:14px;border:2.5px solid var(--red);border-radius:50%;display:inline-block"></span>quarantined host</span>
+  <span><span class="dot" style="background:#f0b429"></span>misclassified flow</span>
+</div>
+
+<div class="summary" id="summary"></div>
+
+<script src="decision_data.js"></script>
+<script>
+const HOSTS=[
+  {id:"HR",     ip:"10.0.0.1", x:0.50, y:0.18},
+  {id:"Finance",ip:"10.0.0.2", x:0.84, y:0.52},
+  {id:"Server", ip:"10.0.0.3", x:0.50, y:0.86},
+  {id:"Guest",  ip:"10.0.0.4", x:0.16, y:0.52},
+];
+const CFG=[
+  {key:"flat",   name:"A — Flat network",        desc:"No segmentation, no response"},
+  {key:"static", name:"B — Static segmentation", desc:"Guest ACL only, no dynamic response"},
+  {key:"rule",   name:"C — Rule-based adaptive",  desc:"Threshold rule, no ML"},
+  {key:"ml",     name:"D — ML-driven adaptive",   desc:"ML detection + containment"},
+];
+const W=360,H=200,PAD=32;
+const px=n=>PAD+n*(W-2*PAD), py=n=>PAD+n*(H-2*PAD);
+const ns="http://www.w3.org/2000/svg";
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+function attacker(){return document.getElementById("attacker").value;}
+function data(){return DECISION_DATA[attacker()];}
+
+function buildPanel(cfg){
+  const p=document.createElement("div");
+  p.className="panel"+(cfg.key==="ml"?" winner":"");
+  p.innerHTML=
+    '<div class="wavetag" id="wave-'+cfg.key+'"></div>'+
+    '<div class="phead"><span class="pname">'+cfg.name+'</span>'+
+    '<span class="badge" id="badge-'+cfg.key+'" style="visibility:hidden"></span></div>'+
+    '<div class="pdesc">'+cfg.desc+'</div>'+
+    '<svg class="net" viewBox="0 0 '+W+' '+H+'" id="svg-'+cfg.key+'"></svg>'+
+    '<div class="statline">'+
+      '<span class="s">Blast radius: <b id="blast-'+cfg.key+'">—</b></span>'+
+      '<span class="s">Contained: <b id="cont-'+cfg.key+'">—</b></span>'+
+      '<span class="s">Quarantined: <b id="quar-'+cfg.key+'">—</b></span>'+
+    '</div>'+
+    '<div class="dtitle"><span>Recent Decisions</span>'+
+      '<span class="quality" id="qual-'+cfg.key+'"></span></div>'+
+    '<table class="dtbl"><thead><tr><th>Source</th><th>Dest</th><th>Prediction</th><th>Risk</th><th>Action</th></tr></thead>'+
+    '<tbody id="dtbl-'+cfg.key+'"></tbody></table>'+
+    '<div class="summcard">'+
+      '<div class="h">Attacker Connection Attempts Before Quarantine</div>'+
+      '<div id="summ-'+cfg.key+'"></div>'+
+    '</div>';
+  document.getElementById("grid").appendChild(p);
+  drawNodes(cfg.key);
+}
+
+function drawNodes(key){
+  const svg=document.getElementById("svg-"+key);svg.innerHTML="";
+  const att=attacker(); const acl=(key!=="flat");
+  HOSTS.filter(h=>h.id!==att).forEach(h=>{
+    const a=HOSTS.find(x=>x.id===att);
+    const e=document.createElementNS(ns,"line");
+    e.setAttribute("x1",px(a.x));e.setAttribute("y1",py(a.y));
+    e.setAttribute("x2",px(h.x));e.setAttribute("y2",py(h.y));
+    e.setAttribute("class","edge");e.setAttribute("id","edge-"+key+"-"+h.id);
+    svg.appendChild(e);
+  });
+  HOSTS.forEach(h=>{
+    const g=document.createElementNS(ns,"g");g.setAttribute("class","node");
+    const ring=document.createElementNS(ns,"circle");
+    ring.setAttribute("cx",px(h.x));ring.setAttribute("cy",py(h.y));
+    ring.setAttribute("r",23);ring.setAttribute("class","ring");ring.setAttribute("id","ring-"+key+"-"+h.id);
+    const c=document.createElementNS(ns,"circle");
+    c.setAttribute("cx",px(h.x));c.setAttribute("cy",py(h.y));c.setAttribute("r",16);
+    c.setAttribute("id","node-"+key+"-"+h.id);
+    c.setAttribute("fill",(h.id==="Guest"&&acl)?"var(--grey)":"var(--green)");
+    const t1=document.createElementNS(ns,"text");
+    t1.setAttribute("x",px(h.x));t1.setAttribute("y",py(h.y)-1);t1.textContent=h.id;
+    const t2=document.createElementNS(ns,"text");
+    t2.setAttribute("x",px(h.x));t2.setAttribute("y",py(h.y)+10);
+    t2.setAttribute("class","role");t2.textContent=h.ip;
+    g.appendChild(ring);g.appendChild(c);g.appendChild(t1);g.appendChild(t2);
+    svg.appendChild(g);
+  });
+}
+
+function resetPanel(cfg){
+  document.getElementById("wave-"+cfg.key).textContent="";
+  document.getElementById("badge-"+cfg.key).style.visibility="hidden";
+  document.getElementById("blast-"+cfg.key).textContent="—";
+  document.getElementById("cont-"+cfg.key).textContent="—";
+  document.getElementById("quar-"+cfg.key).textContent="—";
+  document.getElementById("dtbl-"+cfg.key).innerHTML="";
+  document.getElementById("qual-"+cfg.key).textContent="";
+  document.getElementById("summ-"+cfg.key).innerHTML='<div class="summrow"><span class="k">Run the attack to populate.</span></div>';
+  drawNodes(cfg.key);
+}
+function reset(){CFG.forEach(resetPanel);updateScn();document.getElementById("summary").innerHTML=SUMMARY_IDLE;}
+function updateScn(){
+  const att=attacker();
+  const others=HOSTS.filter(h=>h.id!==att).map(h=>h.id).join(", ");
+  document.getElementById("scninfo").innerHTML="Attacker: <b>"+att+"</b> · Targets: <b>"+others+"</b> · 4 waves";
+}
+
+async function runPanel(cfg){
+  const att=attacker(); const d=data()[cfg.key];
+  const wave=document.getElementById("wave-"+cfg.key);
+  document.getElementById("node-"+cfg.key+"-"+att).setAttribute("fill","var(--red)");
+  const reached=new Set(d.reached);
+  const restrictedTo=new Set(d.restricted.filter(r=>r[0]===att).map(r=>r[1]));
+  const quarantined=d.quarantined.includes(att);
+  const acl=(cfg.key!=="flat");
+  for(let w=1;w<=4;w++){
+    wave.textContent="wave "+w+" / 4";
+    for(const h of HOSTS.filter(x=>x.id!==att)){
+      const edge=document.getElementById("edge-"+cfg.key+"-"+h.id);
+      const node=document.getElementById("node-"+cfg.key+"-"+h.id);
+      if(acl && (h.id==="Guest" || att==="Guest")){ edge.setAttribute("opacity","0.22"); continue; }
+      edge.setAttribute("stroke","var(--red)");
+      await sleep(150);
+      if(restrictedTo.has(h.id)){edge.setAttribute("stroke","var(--orange)");edge.setAttribute("stroke-dasharray","5 5");}
+      else if(reached.has(h.id)){node.setAttribute("fill","var(--red)");}
+    }
+    if(quarantined){
+      document.getElementById("ring-"+cfg.key+"-"+att).classList.add("on");
+      HOSTS.filter(x=>x.id!==att).forEach(h=>{
+        const e=document.getElementById("edge-"+cfg.key+"-"+h.id);
+        e.setAttribute("stroke","var(--red)");e.setAttribute("stroke-dasharray","2 6");e.setAttribute("opacity","0.5");
+      });
+    }
+    await sleep(480);
+  }
+  wave.textContent="complete";
+  const badge=document.getElementById("badge-"+cfg.key);badge.style.visibility="visible";
+  if(d.contained){badge.className="badge g";badge.textContent=d.blast+"/2 — contained";}
+  else if(d.blast===1){badge.className="badge o";badge.textContent="1/2 — Server reached";}
+  else if(d.blast===0){badge.className="badge o";badge.textContent="0/2 — restricted, not quarantined";}
+  else {badge.className="badge r";badge.textContent=d.blast+(d.blast===3?"/3":"/2")+" reached";}
+  document.getElementById("blast-"+cfg.key).textContent=d.blast+(d.blast===3?"/3":"/2");
+  document.getElementById("cont-"+cfg.key).innerHTML=d.contained?'<span style="color:var(--green)">yes</span>':'<span style="color:var(--red)">no</span>';
+  document.getElementById("quar-"+cfg.key).textContent=d.quarantined.length?d.quarantined.join(", "):"none";
+
+  // decision table with misclassification highlight
+  const tb=document.getElementById("dtbl-"+cfg.key);tb.innerHTML="";
+  d.rows.forEach(r=>{
+    const tr=document.createElement("tr");
+    if(r[5]) tr.className="mis";
+    const risk=(r[3]==="-")?"-":r[3];
+    tr.innerHTML="<td>"+r[0]+"</td><td>"+r[1]+"</td><td>"+r[2]+(r[5]?" ⚠":"")+"</td><td>"+risk+"</td>"+
+      '<td class="act '+r[4]+'">'+r[4]+"</td>";
+    tb.appendChild(tr);
+  });
+  // detection quality line
+  const q=document.getElementById("qual-"+cfg.key);
+  if(d.misclassified>0){q.className="quality bad";q.textContent=d.misclassified+" misclassified";}
+  else {q.className="quality good";q.textContent="0 misclassified";}
+
+  // summary card
+  const ttc=(cfg.key==="ml" && att==="HR" && d.contained)
+      ? "15.8 s (measured, ML live run)" : "Not available";
+  const summ=document.getElementById("summ-"+cfg.key);
+  summ.innerHTML=
+    row("Infected host", att)+
+    row("Connection attempts", d.attempts)+
+    row("Unique hosts contacted", d.unique_contacted)+
+    row("Risk score at detection", d.max_att_risk)+
+    row("Containment action", d.action_at_detection)+
+    row("Detection→quarantine time", ttc);
+}
+function row(k,v){return '<div class="summrow"><span class="k">'+k+'</span><span class="v">'+v+'</span></div>';}
+
+const SUMMARY_IDLE='Pick a compromised host and click <b>Start Attack</b> to launch the same lateral-movement attack against all four configurations at once.';
+function summaryFor(att){
+  if(att==="HR"||att==="Finance"){
+    return 'Same attack, four outcomes. <b>Flat (A)</b> and <b>Static (B)</b> let the attacker reach both protected servers (2/2). '+
+      '<b>Rule (C)</b> and <b>ML (D)</b> both contain the host (0/2) — but note the decision tables: the <b>rule misclassifies 2 flows</b> '+
+      '(it calls the victim replies "attack"), while <b>ML misclassifies 0</b>. Same outcome here, but ML classifies correctly — the gap widens '+
+      'on harder attacks (offline macro-F1 0.985 vs 0.749).';
+  }
+  if(att==="Server"){
+    return 'Attacker = <b>Server</b>. Neither rule nor ML fully quarantines (contained = no): the risk engine weights by <b>destination</b> '+
+      'criticality, so a high-value host attacking lower-value hosts stays below the quarantine threshold — only links are restricted. '+
+      'A documented limitation (source-side criticality is next-phase). The rule still misclassifies 2 flows; ML none.';
+  }
+  return 'Attacker = <b>Guest</b>. In <b>Flat (A)</b> Guest reaches everyone (3/3). In <b>Static/Rule/ML</b> the static ACL blocks Guest '+
+    'at the door, so it reaches nothing — segmentation and adaptive response are complementary layers.';
+}
+
+async function start(){
+  document.getElementById("go").disabled=true;document.getElementById("attacker").disabled=true;
+  CFG.forEach(resetPanel);
+  document.getElementById("summary").innerHTML='<b>Attack in progress…</b> watch all four panels.';
+  await Promise.all(CFG.map(runPanel));
+  document.getElementById("summary").innerHTML=summaryFor(attacker());
+  document.getElementById("go").disabled=false;document.getElementById("attacker").disabled=false;
+}
+CFG.forEach(buildPanel);
+reset();
+document.getElementById("go").onclick=start;
+document.getElementById("reset").onclick=reset;
+document.getElementById("attacker").onchange=reset;
+</script>
+</body>
+</html>
