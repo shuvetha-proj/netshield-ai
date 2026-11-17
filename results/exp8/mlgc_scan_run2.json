@@ -1,0 +1,83 @@
+{
+  "attacker": "iot2",
+  "target": "database",
+  "target_reachable": false,
+  "attacker_other_access": false,
+  "attacker_noncritical_access": true,
+  "legit": {
+    "hr->fileserver": true,
+    "fin->database": true
+  },
+  "legit_preserved": true,
+  "time_to_contain_s": 10.9,
+  "attacker_actions": {
+    "MONITOR": 0,
+    "RESTRICT": 2,
+    "QUARANTINE": 0
+  },
+  "attacker_max_risk": 0.829,
+  "others_max_risk": 0.517,
+  "collateral_hosts": [],
+  "rows": [
+    {
+      "dt": 10.9,
+      "src": "10.0.0.7",
+      "dst": "10.0.0.5",
+      "pred": "attack",
+      "risk": 0.829,
+      "action": "RESTRICT"
+    },
+    {
+      "dt": 10.9,
+      "src": "10.0.0.7",
+      "dst": "10.0.0.3",
+      "pred": "path-cut",
+      "risk": 0.829,
+      "action": "RESTRICT"
+    },
+    {
+      "dt": 10.9,
+      "src": "10.0.0.5",
+      "dst": "10.0.0.7",
+      "pred": "attack",
+      "risk": 0.517,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 20.9,
+      "src": "10.0.0.1",
+      "dst": "10.0.0.3",
+      "pred": "normal",
+      "risk": 0.217,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 20.9,
+      "src": "10.0.0.3",
+      "dst": "10.0.0.1",
+      "pred": "normal",
+      "risk": 0.167,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 21.9,
+      "src": "10.0.0.2",
+      "dst": "10.0.0.5",
+      "pred": "normal",
+      "risk": 0.217,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 21.9,
+      "src": "10.0.0.5",
+      "dst": "10.0.0.2",
+      "pred": "normal",
+      "risk": 0.187,
+      "action": "MONITOR"
+    }
+  ],
+  "config": "mlgc",
+  "scenario": "scan",
+  "run": 2,
+  "finished": "2026-11-07 15:47:08"
+}

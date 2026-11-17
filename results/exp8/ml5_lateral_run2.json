@@ -1,0 +1,107 @@
+{
+  "attacker": "hr",
+  "reach": {
+    "fin": false,
+    "fileserver": false,
+    "guest": false,
+    "database": false,
+    "iot1": false,
+    "iot2": false,
+    "admin": false
+  },
+  "hosts_reached": 0,
+  "critical_reached": 0,
+  "contained": true,
+  "legit": {
+    "fin->database": true,
+    "admin->fileserver": true
+  },
+  "legit_preserved": true,
+  "time_to_contain_s": 3.7,
+  "attacker_actions": {
+    "MONITOR": 0,
+    "RESTRICT": 0,
+    "QUARANTINE": 3
+  },
+  "attacker_max_risk": 0.852,
+  "others_max_risk": 0.517,
+  "collateral_hosts": [],
+  "rows": [
+    {
+      "dt": 3.7,
+      "src": "10.0.0.1",
+      "dst": "10.0.0.2",
+      "pred": "lateral_movement",
+      "risk": 0.822,
+      "action": "QUARANTINE"
+    },
+    {
+      "dt": 3.7,
+      "src": "10.0.0.2",
+      "dst": "10.0.0.1",
+      "pred": "lateral_movement",
+      "risk": 0.517,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 3.7,
+      "src": "10.0.0.1",
+      "dst": "10.0.0.3",
+      "pred": "lateral_movement",
+      "risk": 0.852,
+      "action": "QUARANTINE"
+    },
+    {
+      "dt": 3.7,
+      "src": "10.0.0.3",
+      "dst": "10.0.0.1",
+      "pred": "lateral_movement",
+      "risk": 0.517,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 5.7,
+      "src": "10.0.0.1",
+      "dst": "10.0.0.4",
+      "pred": "lateral_movement",
+      "risk": 0.737,
+      "action": "QUARANTINE"
+    },
+    {
+      "dt": 341.7,
+      "src": "10.0.0.2",
+      "dst": "10.0.0.5",
+      "pred": "normal",
+      "risk": 0.217,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 341.7,
+      "src": "10.0.0.5",
+      "dst": "10.0.0.2",
+      "pred": "normal",
+      "risk": 0.187,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 342.7,
+      "src": "10.0.0.8",
+      "dst": "10.0.0.3",
+      "pred": "normal",
+      "risk": 0.217,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 342.7,
+      "src": "10.0.0.3",
+      "dst": "10.0.0.8",
+      "pred": "normal",
+      "risk": 0.177,
+      "action": "MONITOR"
+    }
+  ],
+  "config": "ml5",
+  "scenario": "lateral",
+  "run": 2,
+  "finished": "2026-11-07 14:07:55"
+}

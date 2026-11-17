@@ -1,0 +1,452 @@
+{
+  "attacker": "iot2",
+  "reach": {
+    "hr": true,
+    "fin": true,
+    "fileserver": true,
+    "guest": true,
+    "database": true,
+    "iot1": true,
+    "admin": true
+  },
+  "hosts_reached": 7,
+  "critical_reached": 2,
+  "critical_total": 2,
+  "contained": false,
+  "legit": {
+    "fin->database": true,
+    "admin->fileserver": true
+  },
+  "legit_preserved": true,
+  "time_to_contain_s": null,
+  "attacker_actions": {
+    "MONITOR": 24,
+    "RESTRICT": 0,
+    "QUARANTINE": 0
+  },
+  "attacker_max_risk": 0.825,
+  "others_max_risk": 0.55,
+  "collateral_hosts": [],
+  "rows": [
+    {
+      "dt": 12.6,
+      "src": "10.0.0.7",
+      "dst": "10.0.0.1",
+      "pred": "lateral_movement",
+      "risk": 0.55,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 12.6,
+      "src": "10.0.0.1",
+      "dst": "10.0.0.7",
+      "pred": "lateral_movement",
+      "risk": 0.55,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 12.6,
+      "src": "10.0.0.7",
+      "dst": "10.0.0.2",
+      "pred": "lateral_movement",
+      "risk": 0.66,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 12.6,
+      "src": "10.0.0.2",
+      "dst": "10.0.0.7",
+      "pred": "lateral_movement",
+      "risk": 0.55,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 12.6,
+      "src": "10.0.0.7",
+      "dst": "10.0.0.3",
+      "pred": "lateral_movement",
+      "risk": 0.825,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 12.6,
+      "src": "10.0.0.3",
+      "dst": "10.0.0.7",
+      "pred": "lateral_movement",
+      "risk": 0.55,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 14.6,
+      "src": "10.0.0.7",
+      "dst": "10.0.0.4",
+      "pred": "lateral_movement",
+      "risk": 0.55,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 14.6,
+      "src": "10.0.0.4",
+      "dst": "10.0.0.7",
+      "pred": "lateral_movement",
+      "risk": 0.55,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 14.6,
+      "src": "10.0.0.7",
+      "dst": "10.0.0.5",
+      "pred": "lateral_movement",
+      "risk": 0.825,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 14.6,
+      "src": "10.0.0.5",
+      "dst": "10.0.0.7",
+      "pred": "lateral_movement",
+      "risk": 0.55,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 14.6,
+      "src": "10.0.0.7",
+      "dst": "10.0.0.6",
+      "pred": "lateral_movement",
+      "risk": 0.55,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 14.6,
+      "src": "10.0.0.6",
+      "dst": "10.0.0.7",
+      "pred": "lateral_movement",
+      "risk": 0.55,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 14.6,
+      "src": "10.0.0.7",
+      "dst": "10.0.0.8",
+      "pred": "lateral_movement",
+      "risk": 0.605,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 14.6,
+      "src": "10.0.0.8",
+      "dst": "10.0.0.7",
+      "pred": "lateral_movement",
+      "risk": 0.55,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 26.6,
+      "src": "10.0.0.7",
+      "dst": "10.0.0.1",
+      "pred": "lateral_movement",
+      "risk": 0.55,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 26.6,
+      "src": "10.0.0.1",
+      "dst": "10.0.0.7",
+      "pred": "lateral_movement",
+      "risk": 0.55,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 26.6,
+      "src": "10.0.0.7",
+      "dst": "10.0.0.2",
+      "pred": "lateral_movement",
+      "risk": 0.66,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 26.6,
+      "src": "10.0.0.2",
+      "dst": "10.0.0.7",
+      "pred": "lateral_movement",
+      "risk": 0.55,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 26.6,
+      "src": "10.0.0.7",
+      "dst": "10.0.0.3",
+      "pred": "lateral_movement",
+      "risk": 0.825,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 26.6,
+      "src": "10.0.0.3",
+      "dst": "10.0.0.7",
+      "pred": "lateral_movement",
+      "risk": 0.55,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 27.6,
+      "src": "10.0.0.7",
+      "dst": "10.0.0.4",
+      "pred": "lateral_movement",
+      "risk": 0.55,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 27.6,
+      "src": "10.0.0.4",
+      "dst": "10.0.0.7",
+      "pred": "lateral_movement",
+      "risk": 0.55,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 27.6,
+      "src": "10.0.0.7",
+      "dst": "10.0.0.5",
+      "pred": "lateral_movement",
+      "risk": 0.825,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 27.6,
+      "src": "10.0.0.5",
+      "dst": "10.0.0.7",
+      "pred": "lateral_movement",
+      "risk": 0.55,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 27.6,
+      "src": "10.0.0.7",
+      "dst": "10.0.0.6",
+      "pred": "lateral_movement",
+      "risk": 0.55,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 27.6,
+      "src": "10.0.0.6",
+      "dst": "10.0.0.7",
+      "pred": "lateral_movement",
+      "risk": 0.55,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 27.6,
+      "src": "10.0.0.7",
+      "dst": "10.0.0.8",
+      "pred": "lateral_movement",
+      "risk": 0.605,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 27.6,
+      "src": "10.0.0.8",
+      "dst": "10.0.0.7",
+      "pred": "lateral_movement",
+      "risk": 0.55,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 45.6,
+      "src": "10.0.0.7",
+      "dst": "10.0.0.1",
+      "pred": "lateral_movement",
+      "risk": 0.55,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 45.6,
+      "src": "10.0.0.1",
+      "dst": "10.0.0.7",
+      "pred": "lateral_movement",
+      "risk": 0.55,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 45.6,
+      "src": "10.0.0.7",
+      "dst": "10.0.0.2",
+      "pred": "lateral_movement",
+      "risk": 0.66,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 45.6,
+      "src": "10.0.0.2",
+      "dst": "10.0.0.7",
+      "pred": "lateral_movement",
+      "risk": 0.55,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 46.6,
+      "src": "10.0.0.7",
+      "dst": "10.0.0.3",
+      "pred": "lateral_movement",
+      "risk": 0.825,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 46.6,
+      "src": "10.0.0.3",
+      "dst": "10.0.0.7",
+      "pred": "lateral_movement",
+      "risk": 0.55,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 46.6,
+      "src": "10.0.0.7",
+      "dst": "10.0.0.4",
+      "pred": "lateral_movement",
+      "risk": 0.55,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 47.6,
+      "src": "10.0.0.4",
+      "dst": "10.0.0.7",
+      "pred": "lateral_movement",
+      "risk": 0.55,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 47.6,
+      "src": "10.0.0.7",
+      "dst": "10.0.0.5",
+      "pred": "lateral_movement",
+      "risk": 0.825,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 47.6,
+      "src": "10.0.0.5",
+      "dst": "10.0.0.7",
+      "pred": "lateral_movement",
+      "risk": 0.55,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 47.6,
+      "src": "10.0.0.7",
+      "dst": "10.0.0.6",
+      "pred": "lateral_movement",
+      "risk": 0.55,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 47.6,
+      "src": "10.0.0.6",
+      "dst": "10.0.0.7",
+      "pred": "lateral_movement",
+      "risk": 0.55,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 47.6,
+      "src": "10.0.0.7",
+      "dst": "10.0.0.8",
+      "pred": "lateral_movement",
+      "risk": 0.605,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 47.6,
+      "src": "10.0.0.8",
+      "dst": "10.0.0.7",
+      "pred": "lateral_movement",
+      "risk": 0.55,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 57.6,
+      "src": "10.0.0.2",
+      "dst": "10.0.0.5",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 57.6,
+      "src": "10.0.0.5",
+      "dst": "10.0.0.2",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 58.6,
+      "src": "10.0.0.8",
+      "dst": "10.0.0.3",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 58.6,
+      "src": "10.0.0.3",
+      "dst": "10.0.0.8",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 59.6,
+      "src": "10.0.0.7",
+      "dst": "10.0.0.1",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 59.6,
+      "src": "10.0.0.1",
+      "dst": "10.0.0.7",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 60.6,
+      "src": "10.0.0.7",
+      "dst": "10.0.0.2",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 60.6,
+      "src": "10.0.0.2",
+      "dst": "10.0.0.7",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 60.6,
+      "src": "10.0.0.7",
+      "dst": "10.0.0.3",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 60.6,
+      "src": "10.0.0.3",
+      "dst": "10.0.0.7",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    }
+  ],
+  "config": "flat",
+  "scenario": "lateralall",
+  "run": 1,
+  "finished": "2026-11-07 16:18:48"
+}

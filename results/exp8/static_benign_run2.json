@@ -1,0 +1,308 @@
+{
+  "benign_pairs_ok": {
+    "hr->fileserver": true,
+    "fin->database": true,
+    "admin->fileserver": true,
+    "admin->database": true,
+    "iot1->admin": true,
+    "iot2->admin": true
+  },
+  "false_containments": 0,
+  "false_containment_detail": [],
+  "max_risk": 0.0,
+  "decisions": 36,
+  "rows": [
+    {
+      "dt": 3.2,
+      "src": "10.0.0.1",
+      "dst": "10.0.0.3",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 3.2,
+      "src": "10.0.0.3",
+      "dst": "10.0.0.1",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 4.2,
+      "src": "10.0.0.2",
+      "dst": "10.0.0.5",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 4.2,
+      "src": "10.0.0.5",
+      "dst": "10.0.0.2",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 5.2,
+      "src": "10.0.0.8",
+      "dst": "10.0.0.3",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 5.2,
+      "src": "10.0.0.3",
+      "dst": "10.0.0.8",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 7.2,
+      "src": "10.0.0.8",
+      "dst": "10.0.0.5",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 7.2,
+      "src": "10.0.0.5",
+      "dst": "10.0.0.8",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 8.2,
+      "src": "10.0.0.6",
+      "dst": "10.0.0.8",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 8.2,
+      "src": "10.0.0.8",
+      "dst": "10.0.0.6",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 9.2,
+      "src": "10.0.0.7",
+      "dst": "10.0.0.8",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 9.2,
+      "src": "10.0.0.8",
+      "dst": "10.0.0.7",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 12.2,
+      "src": "10.0.0.1",
+      "dst": "10.0.0.3",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 12.2,
+      "src": "10.0.0.3",
+      "dst": "10.0.0.1",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 13.2,
+      "src": "10.0.0.2",
+      "dst": "10.0.0.5",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 13.2,
+      "src": "10.0.0.5",
+      "dst": "10.0.0.2",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 14.2,
+      "src": "10.0.0.8",
+      "dst": "10.0.0.3",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 14.2,
+      "src": "10.0.0.3",
+      "dst": "10.0.0.8",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 15.2,
+      "src": "10.0.0.8",
+      "dst": "10.0.0.5",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 15.2,
+      "src": "10.0.0.5",
+      "dst": "10.0.0.8",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 16.2,
+      "src": "10.0.0.6",
+      "dst": "10.0.0.8",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 16.2,
+      "src": "10.0.0.8",
+      "dst": "10.0.0.6",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 17.2,
+      "src": "10.0.0.7",
+      "dst": "10.0.0.8",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 17.2,
+      "src": "10.0.0.8",
+      "dst": "10.0.0.7",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 20.2,
+      "src": "10.0.0.1",
+      "dst": "10.0.0.3",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 20.2,
+      "src": "10.0.0.3",
+      "dst": "10.0.0.1",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 21.2,
+      "src": "10.0.0.2",
+      "dst": "10.0.0.5",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 21.2,
+      "src": "10.0.0.5",
+      "dst": "10.0.0.2",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 22.2,
+      "src": "10.0.0.8",
+      "dst": "10.0.0.3",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 22.2,
+      "src": "10.0.0.3",
+      "dst": "10.0.0.8",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 23.2,
+      "src": "10.0.0.8",
+      "dst": "10.0.0.5",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 23.2,
+      "src": "10.0.0.5",
+      "dst": "10.0.0.8",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 24.2,
+      "src": "10.0.0.6",
+      "dst": "10.0.0.8",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 24.2,
+      "src": "10.0.0.8",
+      "dst": "10.0.0.6",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 25.2,
+      "src": "10.0.0.7",
+      "dst": "10.0.0.8",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 25.2,
+      "src": "10.0.0.8",
+      "dst": "10.0.0.7",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    }
+  ],
+  "config": "static",
+  "scenario": "benign",
+  "run": 2,
+  "finished": "2026-11-07 13:19:13"
+}

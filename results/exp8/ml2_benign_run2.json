@@ -1,0 +1,215 @@
+{
+  "benign_pairs_ok": {
+    "hr->fileserver": true,
+    "fin->database": true,
+    "admin->fileserver": false,
+    "admin->database": false,
+    "iot1->admin": false,
+    "iot2->admin": false
+  },
+  "false_containments": 2,
+  "false_containment_detail": [
+    "10.0.0.8->10.0.0.3 QUARANTINE 0.825",
+    "10.0.0.8->10.0.0.5 QUARANTINE 0.825"
+  ],
+  "max_risk": 0.825,
+  "decisions": 24,
+  "rows": [
+    {
+      "dt": 4.1,
+      "src": "10.0.0.1",
+      "dst": "10.0.0.3",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 4.1,
+      "src": "10.0.0.3",
+      "dst": "10.0.0.1",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 5.1,
+      "src": "10.0.0.2",
+      "dst": "10.0.0.5",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 5.1,
+      "src": "10.0.0.5",
+      "dst": "10.0.0.2",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 6.1,
+      "src": "10.0.0.8",
+      "dst": "10.0.0.3",
+      "pred": "lateral_movement",
+      "risk": 0.825,
+      "action": "QUARANTINE"
+    },
+    {
+      "dt": 6.1,
+      "src": "10.0.0.3",
+      "dst": "10.0.0.8",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 7.1,
+      "src": "10.0.0.8",
+      "dst": "10.0.0.5",
+      "pred": "lateral_movement",
+      "risk": 0.825,
+      "action": "QUARANTINE"
+    },
+    {
+      "dt": 8.1,
+      "src": "10.0.0.5",
+      "dst": "10.0.0.8",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 8.1,
+      "src": "10.0.0.6",
+      "dst": "10.0.0.8",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 8.1,
+      "src": "10.0.0.8",
+      "dst": "10.0.0.6",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 9.1,
+      "src": "10.0.0.7",
+      "dst": "10.0.0.8",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 9.1,
+      "src": "10.0.0.8",
+      "dst": "10.0.0.7",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 12.1,
+      "src": "10.0.0.1",
+      "dst": "10.0.0.3",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 12.1,
+      "src": "10.0.0.3",
+      "dst": "10.0.0.1",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 13.1,
+      "src": "10.0.0.2",
+      "dst": "10.0.0.5",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 13.1,
+      "src": "10.0.0.5",
+      "dst": "10.0.0.2",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 19.1,
+      "src": "10.0.0.6",
+      "dst": "10.0.0.8",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 21.1,
+      "src": "10.0.0.7",
+      "dst": "10.0.0.8",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 24.1,
+      "src": "10.0.0.1",
+      "dst": "10.0.0.3",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 24.1,
+      "src": "10.0.0.3",
+      "dst": "10.0.0.1",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 25.1,
+      "src": "10.0.0.2",
+      "dst": "10.0.0.5",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 25.1,
+      "src": "10.0.0.5",
+      "dst": "10.0.0.2",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 31.1,
+      "src": "10.0.0.6",
+      "dst": "10.0.0.8",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 33.1,
+      "src": "10.0.0.7",
+      "dst": "10.0.0.8",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    }
+  ],
+  "config": "ml2",
+  "scenario": "benign",
+  "run": 2,
+  "finished": "2026-11-07 14:50:13"
+}

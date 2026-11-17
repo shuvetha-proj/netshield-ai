@@ -1,0 +1,6 @@
+Configuration    | Guest reachable | Protected reached (blast radius) | Contained | Time-to-contain (s) | Legit traffic preserved
+-----------------+-----------------+----------------------------------+-----------+---------------------+------------------------
+A: Flat          | yes             | 2/2                              | no        | never               | yes                    
+B: Static seg.   | no              | 2/2                              | no        | never               | yes                    
+C: Rule adaptive | no              | 1/2                              | no        | never               | yes                    
+D: ML adaptive   | no              | 0/2                              | yes       | 15.8                | yes                    

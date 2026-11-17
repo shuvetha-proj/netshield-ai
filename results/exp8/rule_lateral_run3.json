@@ -1,0 +1,107 @@
+{
+  "attacker": "hr",
+  "reach": {
+    "fin": false,
+    "fileserver": false,
+    "guest": false,
+    "database": false,
+    "iot1": false,
+    "iot2": false,
+    "admin": false
+  },
+  "hosts_reached": 0,
+  "critical_reached": 0,
+  "contained": true,
+  "legit": {
+    "fin->database": true,
+    "admin->fileserver": true
+  },
+  "legit_preserved": true,
+  "time_to_contain_s": 4.4,
+  "attacker_actions": {
+    "MONITOR": 0,
+    "RESTRICT": 2,
+    "QUARANTINE": 1
+  },
+  "attacker_max_risk": 0.825,
+  "others_max_risk": 0.45,
+  "collateral_hosts": [],
+  "rows": [
+    {
+      "dt": 4.4,
+      "src": "10.0.0.1",
+      "dst": "10.0.0.2",
+      "pred": "lateral_movement",
+      "risk": 0.66,
+      "action": "RESTRICT"
+    },
+    {
+      "dt": 4.4,
+      "src": "10.0.0.2",
+      "dst": "10.0.0.1",
+      "pred": "attack",
+      "risk": 0.45,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 4.4,
+      "src": "10.0.0.1",
+      "dst": "10.0.0.3",
+      "pred": "lateral_movement",
+      "risk": 0.825,
+      "action": "QUARANTINE"
+    },
+    {
+      "dt": 4.4,
+      "src": "10.0.0.3",
+      "dst": "10.0.0.1",
+      "pred": "attack",
+      "risk": 0.45,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 6.4,
+      "src": "10.0.0.1",
+      "dst": "10.0.0.4",
+      "pred": "lateral_movement",
+      "risk": 0.55,
+      "action": "RESTRICT"
+    },
+    {
+      "dt": 304.4,
+      "src": "10.0.0.2",
+      "dst": "10.0.0.5",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 304.4,
+      "src": "10.0.0.5",
+      "dst": "10.0.0.2",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 305.4,
+      "src": "10.0.0.8",
+      "dst": "10.0.0.3",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 305.4,
+      "src": "10.0.0.3",
+      "dst": "10.0.0.8",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    }
+  ],
+  "config": "rule",
+  "scenario": "lateral",
+  "run": 3,
+  "finished": "2026-11-07 13:49:53"
+}

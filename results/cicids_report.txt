@@ -1,0 +1,38 @@
+CIC-IDS2017 VALIDATION (public real-world dataset)
+Attack type: PortScan   |   Approach: Random Forest on flow features
+============================================================
+Total flows analysed : 286,467
+Features used        : 78
+Train / Test         : 200,526 / 85,941
+
+Accuracy  : 0.9999
+Precision : 1.0000
+Recall    : 0.9999
+F1-score  : 0.9999
+FPR       : 0.0000
+FNR       : 0.0001
+
+Confusion matrix (rows=true, cols=pred, order=[BENIGN, ATTACK]):
+[[38261     1]
+ [    5 47674]]
+
+              precision    recall  f1-score   support
+
+      BENIGN       1.00      1.00      1.00     38262
+      ATTACK       1.00      1.00      1.00     47679
+
+    accuracy                           1.00     85941
+   macro avg       1.00      1.00      1.00     85941
+weighted avg       1.00      1.00      1.00     85941
+
+Top 10 most important features:
+  Bwd Packets/s                       0.0686
+  Subflow Fwd Bytes                   0.0667
+  Flow IAT Max                        0.0660
+  Fwd Packet Length Mean              0.0642
+  Average Packet Size                 0.0614
+  Fwd Packet Length Max               0.0556
+  Total Length of Fwd Packets         0.0531
+  Flow Duration                       0.0461
+  Avg Fwd Segment Size                0.0420
+  PSH Flag Count                      0.0419

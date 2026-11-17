@@ -1,0 +1,19 @@
+|--- has_icmp <= 0.50
+|   |--- distinct_dst_hosts_recent <= 2.50
+|   |   |--- class: attack
+|   |--- distinct_dst_hosts_recent >  2.50
+|   |   |--- class: lateral_movement
+|--- has_icmp >  0.50
+|   |--- has_tcp <= 0.50
+|   |   |--- distinct_dst_hosts_recent <= 2.00
+|   |   |   |--- has_arp <= 0.50
+|   |   |   |   |--- class: normal
+|   |   |   |--- has_arp >  0.50
+|   |   |   |   |--- class: normal
+|   |   |--- distinct_dst_hosts_recent >  2.00
+|   |   |   |--- class: lateral_movement
+|   |--- has_tcp >  0.50
+|   |   |--- has_arp <= 0.50
+|   |   |   |--- class: lateral_movement
+|   |   |--- has_arp >  0.50
+|   |   |   |--- class: lateral_movement

@@ -1,0 +1,58 @@
+{
+  "mode": "rule",
+  "waves": [
+    {
+      "wave": 1,
+      "hr_reaches": {
+        "fin": false,
+        "crit": true,
+        "guest": false
+      },
+      "legit_fin_crit": true,
+      "t": 18.8
+    },
+    {
+      "wave": 2,
+      "hr_reaches": {
+        "fin": false,
+        "crit": true,
+        "guest": false
+      },
+      "legit_fin_crit": true,
+      "t": 37.5
+    },
+    {
+      "wave": 3,
+      "hr_reaches": {
+        "fin": false,
+        "crit": true,
+        "guest": false
+      },
+      "legit_fin_crit": true,
+      "t": 56.3
+    },
+    {
+      "wave": 4,
+      "hr_reaches": {
+        "fin": false,
+        "crit": true,
+        "guest": false
+      },
+      "legit_fin_crit": true,
+      "t": 75.2
+    }
+  ],
+  "baseline": {
+    "hr_to_fin": true,
+    "fin_to_crit": true,
+    "crit_to_fin": true,
+    "hr_to_guest": false
+  },
+  "protected_reachable_final": 1,
+  "crit_reachable_final": true,
+  "fin_reachable_final": false,
+  "guest_reachable_final": false,
+  "contained_crit": false,
+  "time_to_contain_s": null,
+  "legit_preserved": true
+}

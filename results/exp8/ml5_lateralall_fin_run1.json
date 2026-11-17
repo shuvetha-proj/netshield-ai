@@ -1,0 +1,116 @@
+{
+  "attacker": "fin",
+  "reach": {
+    "hr": false,
+    "fileserver": false,
+    "guest": false,
+    "database": false,
+    "iot1": false,
+    "iot2": false,
+    "admin": false
+  },
+  "hosts_reached": 0,
+  "critical_reached": 0,
+  "critical_total": 2,
+  "contained": true,
+  "legit": {
+    "admin->fileserver": true,
+    "hr->fileserver": true
+  },
+  "legit_preserved": true,
+  "time_to_contain_s": 4.2,
+  "attacker_actions": {
+    "MONITOR": 0,
+    "RESTRICT": 0,
+    "QUARANTINE": 3
+  },
+  "attacker_max_risk": 0.852,
+  "others_max_risk": 0.531,
+  "collateral_hosts": [],
+  "rows": [
+    {
+      "dt": 4.2,
+      "src": "10.0.0.2",
+      "dst": "10.0.0.1",
+      "pred": "lateral_movement",
+      "risk": 0.727,
+      "action": "QUARANTINE"
+    },
+    {
+      "dt": 4.2,
+      "src": "10.0.0.1",
+      "dst": "10.0.0.2",
+      "pred": "lateral_movement",
+      "risk": 0.531,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 5.2,
+      "src": "10.0.0.2",
+      "dst": "10.0.0.3",
+      "pred": "lateral_movement",
+      "risk": 0.852,
+      "action": "QUARANTINE"
+    },
+    {
+      "dt": 5.2,
+      "src": "10.0.0.3",
+      "dst": "10.0.0.2",
+      "pred": "lateral_movement",
+      "risk": 0.531,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 7.2,
+      "src": "10.0.0.2",
+      "dst": "10.0.0.4",
+      "pred": "lateral_movement",
+      "risk": 0.737,
+      "action": "QUARANTINE"
+    },
+    {
+      "dt": 274.2,
+      "src": "10.0.0.8",
+      "dst": "10.0.0.3",
+      "pred": "normal",
+      "risk": 0.217,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 274.2,
+      "src": "10.0.0.3",
+      "dst": "10.0.0.8",
+      "pred": "normal",
+      "risk": 0.303,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 275.2,
+      "src": "10.0.0.1",
+      "dst": "10.0.0.3",
+      "pred": "normal",
+      "risk": 0.217,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 275.2,
+      "src": "10.0.0.3",
+      "dst": "10.0.0.1",
+      "pred": "normal",
+      "risk": 0.293,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 279.2,
+      "src": "10.0.0.1",
+      "dst": "10.0.0.3",
+      "pred": "normal",
+      "risk": 0.395,
+      "action": "MONITOR"
+    }
+  ],
+  "config": "ml5",
+  "scenario": "lateralall",
+  "run": 1,
+  "finished": "2026-11-07 17:43:35"
+}

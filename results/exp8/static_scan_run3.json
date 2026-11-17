@@ -1,0 +1,42 @@
+{
+  "attacker": "iot2",
+  "target": "database",
+  "target_reachable": true,
+  "attacker_other_access": true,
+  "legit": {
+    "hr->fileserver": true,
+    "fin->database": true
+  },
+  "legit_preserved": true,
+  "time_to_contain_s": null,
+  "attacker_actions": {
+    "MONITOR": 1,
+    "RESTRICT": 0,
+    "QUARANTINE": 0
+  },
+  "attacker_max_risk": 0.675,
+  "others_max_risk": 0.45,
+  "collateral_hosts": [],
+  "rows": [
+    {
+      "dt": 9.4,
+      "src": "10.0.0.7",
+      "dst": "10.0.0.5",
+      "pred": "attack",
+      "risk": 0.675,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 9.4,
+      "src": "10.0.0.5",
+      "dst": "10.0.0.7",
+      "pred": "attack",
+      "risk": 0.45,
+      "action": "MONITOR"
+    }
+  ],
+  "config": "static",
+  "scenario": "scan",
+  "run": 3,
+  "finished": "2026-11-07 13:27:13"
+}

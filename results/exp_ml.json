@@ -1,0 +1,58 @@
+{
+  "mode": "ml",
+  "waves": [
+    {
+      "wave": 1,
+      "hr_reaches": {
+        "fin": false,
+        "crit": false,
+        "guest": false
+      },
+      "legit_fin_crit": true,
+      "t": 15.8
+    },
+    {
+      "wave": 2,
+      "hr_reaches": {
+        "fin": false,
+        "crit": false,
+        "guest": false
+      },
+      "legit_fin_crit": true,
+      "t": 39.6
+    },
+    {
+      "wave": 3,
+      "hr_reaches": {
+        "fin": false,
+        "crit": false,
+        "guest": false
+      },
+      "legit_fin_crit": true,
+      "t": 63.5
+    },
+    {
+      "wave": 4,
+      "hr_reaches": {
+        "fin": false,
+        "crit": false,
+        "guest": false
+      },
+      "legit_fin_crit": true,
+      "t": 87.3
+    }
+  ],
+  "baseline": {
+    "hr_to_fin": true,
+    "fin_to_crit": true,
+    "crit_to_fin": true,
+    "hr_to_guest": false
+  },
+  "protected_reachable_final": 0,
+  "crit_reachable_final": false,
+  "fin_reachable_final": false,
+  "guest_reachable_final": false,
+  "contained_crit": true,
+  "time_to_contain_s": 15.8,
+  "legit_preserved": true
+}

@@ -1,0 +1,12 @@
+RISK ENGINE COMPARISON  (2-factor live  vs  5-term enhanced)
+
+Flow                  2-factor action       5-term action     
+Normal -> Finance          0.0 MONITOR        21.4 MONITOR    
+Lateral -> HR             55.0 RESTRICT       70.5 QUARANTINE   <- escalated
+Lateral -> Finance        66.0 RESTRICT       72.5 QUARANTINE   <- escalated
+Lateral -> Server         82.5 QUARANTINE     75.5 QUARANTINE 
+Scan -> HR                45.0 RESTRICT       55.9 RESTRICT   
+
+The 5-term model adds connection-rate and fan-out behaviour to the
+ML-label x criticality baseline, so it escalates on attacker BEHAVIOUR,
+not destination value alone -- containing the compromised host earlier.

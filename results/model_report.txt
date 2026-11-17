@@ -1,0 +1,63 @@
+===== Random Forest (hold-out test set) =====
+                  precision    recall  f1-score   support
+
+          attack       1.00      1.00      1.00        14
+lateral_movement       1.00      0.98      0.99        42
+          normal       0.93      1.00      0.97        14
+
+        accuracy                           0.99        70
+       macro avg       0.98      0.99      0.98        70
+    weighted avg       0.99      0.99      0.99        70
+
+Confusion matrix (rows=true, cols=pred, order=['attack', 'lateral_movement', 'normal']):
+[[14  0  0]
+ [ 0 41  1]
+ [ 0  0 14]]
+
+===== Decision Tree (hold-out test set) =====
+                  precision    recall  f1-score   support
+
+          attack       1.00      1.00      1.00        14
+lateral_movement       1.00      0.98      0.99        42
+          normal       0.93      1.00      0.97        14
+
+        accuracy                           0.99        70
+       macro avg       0.98      0.99      0.98        70
+    weighted avg       0.99      0.99      0.99        70
+
+Confusion matrix (rows=true, cols=pred, order=['attack', 'lateral_movement', 'normal']):
+[[14  0  0]
+ [ 0 41  1]
+ [ 0  0 14]]
+
+===== XGBoost (hold-out test set) =====
+                  precision    recall  f1-score   support
+
+          attack       1.00      1.00      1.00        14
+lateral_movement       1.00      0.98      0.99        42
+          normal       0.93      1.00      0.97        14
+
+        accuracy                           0.99        70
+       macro avg       0.98      0.99      0.98        70
+    weighted avg       0.99      0.99      0.99        70
+
+Confusion matrix (rows=true, cols=pred, order=['attack', 'lateral_movement', 'normal']):
+[[14  0  0]
+ [ 0 41  1]
+ [ 0  0 14]]
+
+===== Threshold rule (no ML) (hold-out test set) =====
+                  precision    recall  f1-score   support
+
+          attack       0.42      0.79      0.55        14
+lateral_movement       0.90      0.62      0.73        42
+          normal       0.93      1.00      0.97        14
+
+        accuracy                           0.73        70
+       macro avg       0.75      0.80      0.75        70
+    weighted avg       0.81      0.73      0.74        70
+
+Confusion matrix (rows=true, cols=pred, order=['attack', 'lateral_movement', 'normal']):
+[[11  3  0]
+ [15 26  1]
+ [ 0  0 14]]

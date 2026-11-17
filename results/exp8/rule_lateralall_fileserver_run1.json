@@ -1,0 +1,180 @@
+{
+  "attacker": "fileserver",
+  "reach": {
+    "hr": false,
+    "fin": false,
+    "guest": false,
+    "database": false,
+    "iot1": false,
+    "iot2": false,
+    "admin": false
+  },
+  "hosts_reached": 0,
+  "critical_reached": 0,
+  "critical_total": 1,
+  "contained": true,
+  "legit": {
+    "fin->database": true,
+    "iot1->admin": true
+  },
+  "legit_preserved": true,
+  "time_to_contain_s": 4.3,
+  "attacker_actions": {
+    "MONITOR": 0,
+    "RESTRICT": 6,
+    "QUARANTINE": 1
+  },
+  "attacker_max_risk": 0.825,
+  "others_max_risk": 0.675,
+  "collateral_hosts": [],
+  "rows": [
+    {
+      "dt": 4.3,
+      "src": "10.0.0.3",
+      "dst": "10.0.0.1",
+      "pred": "lateral_movement",
+      "risk": 0.55,
+      "action": "RESTRICT"
+    },
+    {
+      "dt": 4.3,
+      "src": "10.0.0.1",
+      "dst": "10.0.0.3",
+      "pred": "attack",
+      "risk": 0.675,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 4.3,
+      "src": "10.0.0.3",
+      "dst": "10.0.0.2",
+      "pred": "lateral_movement",
+      "risk": 0.66,
+      "action": "RESTRICT"
+    },
+    {
+      "dt": 4.3,
+      "src": "10.0.0.2",
+      "dst": "10.0.0.3",
+      "pred": "attack",
+      "risk": 0.675,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 7.3,
+      "src": "10.0.0.3",
+      "dst": "10.0.0.4",
+      "pred": "lateral_movement",
+      "risk": 0.55,
+      "action": "RESTRICT"
+    },
+    {
+      "dt": 9.3,
+      "src": "10.0.0.3",
+      "dst": "10.0.0.5",
+      "pred": "lateral_movement",
+      "risk": 0.825,
+      "action": "QUARANTINE"
+    },
+    {
+      "dt": 9.3,
+      "src": "10.0.0.5",
+      "dst": "10.0.0.3",
+      "pred": "attack",
+      "risk": 0.675,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 9.3,
+      "src": "10.0.0.3",
+      "dst": "10.0.0.6",
+      "pred": "lateral_movement",
+      "risk": 0.55,
+      "action": "RESTRICT"
+    },
+    {
+      "dt": 9.3,
+      "src": "10.0.0.6",
+      "dst": "10.0.0.3",
+      "pred": "attack",
+      "risk": 0.675,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 10.3,
+      "src": "10.0.0.3",
+      "dst": "10.0.0.7",
+      "pred": "lateral_movement",
+      "risk": 0.55,
+      "action": "RESTRICT"
+    },
+    {
+      "dt": 10.3,
+      "src": "10.0.0.7",
+      "dst": "10.0.0.3",
+      "pred": "attack",
+      "risk": 0.675,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 10.3,
+      "src": "10.0.0.3",
+      "dst": "10.0.0.8",
+      "pred": "lateral_movement",
+      "risk": 0.605,
+      "action": "RESTRICT"
+    },
+    {
+      "dt": 10.3,
+      "src": "10.0.0.8",
+      "dst": "10.0.0.3",
+      "pred": "attack",
+      "risk": 0.675,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 338.3,
+      "src": "10.0.0.2",
+      "dst": "10.0.0.5",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 338.3,
+      "src": "10.0.0.5",
+      "dst": "10.0.0.2",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 339.3,
+      "src": "10.0.0.6",
+      "dst": "10.0.0.8",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 339.3,
+      "src": "10.0.0.8",
+      "dst": "10.0.0.6",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    },
+    {
+      "dt": 343.3,
+      "src": "10.0.0.6",
+      "dst": "10.0.0.8",
+      "pred": "normal",
+      "risk": 0.0,
+      "action": "MONITOR"
+    }
+  ],
+  "config": "rule",
+  "scenario": "lateralall",
+  "run": 1,
+  "finished": "2026-11-07 17:00:40"
+}

@@ -1,0 +1,12 @@
+ATTACK-PATH / REACHABILITY ANALYSIS (objective 5)
+Compromised host: HR (10.0.0.1)
+Target: Server (10.0.0.3, criticality 1.5)
+
+A - Flat network: path = HR -> Server (1 hop(s)).
+B - Static segmentation: path = HR -> Server (1 hop(s)).
+C - Rule-based (HR quarantined): NO PATH -> Server unreachable (contained).
+D - ML-driven (HR quarantined): NO PATH -> Server unreachable (contained).
+
+Flat & Static leave a direct trusted path to the Server.
+Rule-based and ML-driven both quarantine the compromised host,
+severing every path to the Server (no route from attacker to critical asset).

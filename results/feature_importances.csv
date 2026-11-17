@@ -1,0 +1,7 @@
+feature,Random Forest,Decision Tree
+distinct_dst_ports,0.2813,0.0
+distinct_dst_hosts_recent,0.0841,0.055
+has_icmp,0.4059,0.4875
+has_tcp,0.2173,0.4575
+has_udp,0.0,0.0
+has_arp,0.0115,0.0
